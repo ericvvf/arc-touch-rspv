@@ -1,0 +1,22 @@
+uuid: 384ae7cb-7a8d-46fa-ac99-9366465c980a
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - rspv
+_core:
+  default_config_hash: KHQIJ7Vfl25lTjzIc7qIvnuistt-Mw2O0kG4jCofmkI
+id: rspv_messages
+theme: rspv
+region: header
+weight: 0
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Status messages'
+  provider: system
+  label_display: '0'
+visibility: {  }

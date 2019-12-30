@@ -1,0 +1,20 @@
+uuid: 0fbac182-7ba7-49f9-91a0-43c1c1f01f1c
+langcode: en
+status: true
+dependencies:
+  theme:
+    - rspv
+_core:
+  default_config_hash: 7rR9chwXvdM2H8OYMAYx9Zj3GGlPMrZp_M3ZA4thYTk
+id: rspv_page_title
+theme: rspv
+region: content
+weight: -50
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  provider: core
+  label_display: '0'
+visibility: {  }

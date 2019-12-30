@@ -1,0 +1,22 @@
+uuid: 8a6fdce1-48c3-45ae-94e3-21318aa3acea
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - rspv
+_core:
+  default_config_hash: 9EoWV2Lot6FVSr50t4hoKgiz1LIXYWNG-IIPYsWxBqo
+id: rspv_content
+theme: rspv
+region: content
+weight: 0
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  provider: system
+  label_display: '0'
+visibility: {  }
