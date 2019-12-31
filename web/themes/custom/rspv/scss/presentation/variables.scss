@@ -11,3 +11,23 @@ $boulder:       #777;
 $dusty-gray:    #999;
 $alto:          #ddd;
 $gallery:       #eee;
+
+// Font-family base
+$font-family-base: Roboto, sans-serif, Arial;
+
+body {
+  font-family: $font-family-base;
+}
+
+// Grid breakpoints
+//
+// Define the minimum dimensions at which your layout will change,
+// adapting to different screen sizes, for use in media queries.
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1280px,
+  xxl: 1440px,
+);

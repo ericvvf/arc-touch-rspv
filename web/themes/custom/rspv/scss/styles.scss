@@ -6,3 +6,15 @@
 
 // Bootstrap
 @import "../node_modules/bootstrap/scss/bootstrap";
+
+
+* {
+  a {
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+// Layout
+@import "layout/*";
