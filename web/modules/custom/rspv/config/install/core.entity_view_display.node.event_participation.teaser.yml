@@ -1,0 +1,23 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.event_participation.field_event
+    - field.field.node.event_participation.field_spectator
+    - node.type.event_participation
+  module:
+    - user
+id: node.event_participation.teaser
+targetEntityType: node
+bundle: event_participation
+mode: teaser
+content:
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_event: true
+  field_spectator: true
