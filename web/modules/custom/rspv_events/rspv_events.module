@@ -1,0 +1,21 @@
+<?php
+
+/**
+ * @file
+ * Custom module for generic tasks.
+ */
+
+/**
+ * Implements hook_theme_suggestions_HOOK
+ */
+function rspv_events_theme_suggestions_node(array $variables) {
+  $suggestions = [];
+  /** @var \Drupal\node\NodeInterface $node */
+  $node = $variables['elements']['#node'];
+  if($node->bundle() === 'event') {
+    if(isset($variables['elements']['#view_mode'])) {
+      $suggestions[] = "node__{$variables['elements']['#view_mode']}";
+    }
+  }
+  return $suggestions;
+}

@@ -3,7 +3,7 @@ status: true
 dependencies:
   enforced:
     module:
-      - rspv
+      - rspv_events
   module:
     - node
     - user
