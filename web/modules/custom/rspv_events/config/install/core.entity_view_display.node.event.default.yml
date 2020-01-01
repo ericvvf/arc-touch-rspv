@@ -37,9 +37,9 @@ content:
     weight: 1
     label: hidden
     settings:
-      image_style: ''
+      image_style: 'event_cover'
     third_party_settings: {  }
-    type: image_url
+    type: image
     region: content
 hidden:
   links: true
