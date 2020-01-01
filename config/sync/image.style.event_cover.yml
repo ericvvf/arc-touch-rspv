@@ -1,0 +1,14 @@
+uuid: ac7d4226-e00a-4851-bed6-d5aacd030caf
+langcode: en
+status: true
+dependencies: {  }
+name: event_cover
+label: 'Event Cover'
+effects:
+  e3a70f75-59b3-4d8e-8084-528f69223ea1:
+    uuid: e3a70f75-59b3-4d8e-8084-528f69223ea1
+    id: image_resize
+    weight: 1
+    data:
+      width: 1140
+      height: 250
