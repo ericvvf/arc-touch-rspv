@@ -19,3 +19,15 @@ function rspv_events_theme_suggestions_node(array $variables) {
   }
   return $suggestions;
 }
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function rspv_events_preprocess_node(&$variables) {
+  $node = $variables['elements']['#node'];
+  $event_date = $node->get('field_date')->getValue()[0]['value'];
+  $event_date_day = date('d', strtotime($event_date));
+  $event_date_month = date('M', strtotime($event_date));
+  $variables['event_date_day'] = $event_date_day;
+  $variables['event_date_month'] = $event_date_month;
+}
