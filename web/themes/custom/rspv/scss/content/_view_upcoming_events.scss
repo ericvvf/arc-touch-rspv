@@ -7,6 +7,9 @@
     h1, p {
       color: $mine-shaft;
     }
+    h1 {
+      font-weight: 700;
+    }
   }
 
   .view-footer {
@@ -38,6 +41,8 @@
                 }
               }
               .event-info-wrapper {
+                min-height: 210px;
+                position: relative;
                 transition: box-shadow .3s;
                 background: $white;
                 box-sizing: border-box;
@@ -73,11 +78,27 @@
                     color: $mine-shaft;
                     line-height: 1.43rem;
                   }
+                  h1, h2 {
+                    font-size: 1.125rem;
+                    font-weight: 700;
+                    line-height: 1.43rem;
+                  }
                   p {
                     margin-bottom: 0;
                     font-size: 0.89rem;
                     color: $boulder;
                     line-height: 1.125rem;
+                  }
+                  .event-read-more {
+                    position: absolute;
+                    bottom: 1rem;
+                    right: 1.5rem;
+                    text-align: right;
+                    a {
+                      text-transform: uppercase;
+                      font-size: 0.89rem;
+                      color: $jungle-green;
+                    }
                   }
                 }
               }
