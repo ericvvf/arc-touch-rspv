@@ -4,7 +4,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.event.body
-    - field.field.node.event.field_date
+    - field.field.node.event.field_event_date
     - field.field.node.event.field_image
     - image.style.event_teaser
     - node.type.event
@@ -26,7 +26,7 @@ content:
     settings:
       trim_length: 100
     third_party_settings: {  }
-  field_date:
+  field_event_date:
     type: datetime_custom
     weight: 0
     region: content
