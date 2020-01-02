@@ -33,4 +33,5 @@ function rspv_events_preprocess_node(&$variables) {
 
   // Checking whether the current user is anonymous or not
   $variables['isAnonymous'] = \Drupal::currentUser()->isAnonymous() ? true : false;
+  $variables['#attached']['library'][] = 'rspv_events/subscription';
 }

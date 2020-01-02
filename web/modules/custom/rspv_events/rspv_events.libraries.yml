@@ -1,0 +1,6 @@
+subscription:
+  js:
+    assets/js/subscription.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
