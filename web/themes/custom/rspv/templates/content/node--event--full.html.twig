@@ -96,7 +96,7 @@
   {% if isAnonymous %}
     <a class="btn btn-lg btn-rspv-primary" href="/user/login" role="button">Login to join the event</a>
   {% else %}
-    <a class="use-ajax btn btn-lg btn-rspv-primary" href="#" role="button">Join the event</a>
+    <a data-event="{{ node.id() }}" class="btn-join-event btn btn-lg btn-rspv-primary" href="#" role="button">Join the event</a>
   {% endif %}
 
 </article>
