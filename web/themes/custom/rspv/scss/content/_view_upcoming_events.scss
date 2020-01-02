@@ -1,4 +1,19 @@
 .view-upcoming-events {
+
+  .view-header {
+    text-align: center;
+    margin-bottom: 3rem;
+
+    h1, p {
+      color: $mine-shaft;
+    }
+  }
+
+  .view-footer {
+    text-align: center;
+    margin-top: 3rem;
+  }
+
   .view-content {
     .events-wrapper {
       .upcoming-events-list {

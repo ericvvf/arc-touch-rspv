@@ -1,0 +1,13 @@
+.btn-rspv-primary {
+  background-color: $jungle-green;
+  border-color: $jungle-green;
+  color: $white;
+  font-weight: 700;
+  padding: 0.375rem 3rem;
+
+  &:hover {
+    background-color: $shamrock;
+    border-color: $shamrock;
+    color: $white;
+  }
+}
