@@ -11,7 +11,7 @@ dependencies:
     - node
     - user
 _core:
-  default_config_hash: Gorq1nePSMtkG9fhsMlG1hZm0Vc0373p76ShG2L45Cs
+  default_config_hash: u-lO79MHiDrsWVTxDGGLcxw_PLV_q_iR6CKrEsO_NHA
 id: upcoming_events
 label: 'Upcoming Events'
 module: views
@@ -183,6 +183,39 @@ display:
       display_extenders: {  }
       path: home
       display_description: ''
+      title: ''
+      defaults:
+        title: false
+        header: false
+        footer: false
+      header:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: false
+          tokenize: false
+          content:
+            value: "<h1>The main events are coming</h1>\r\n<p>Check the upcoming events in the upcoming days</p>"
+            format: full_html
+          plugin_id: text
+      footer:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: false
+          tokenize: false
+          content:
+            value: '<a class="btn btn-rspv-primary" href="/next-events" role="button">See all the events</a>'
+            format: full_html
+          plugin_id: text
     cache_metadata:
       max-age: -1
       contexts:
@@ -223,6 +256,8 @@ display:
           quantity: 4
       defaults:
         pager: false
+        title: false
+      title: ''
     cache_metadata:
       max-age: -1
       contexts:
