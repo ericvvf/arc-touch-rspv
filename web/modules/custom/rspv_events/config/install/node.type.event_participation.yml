@@ -1,7 +1,9 @@
-uuid: c9eb2b51-fb43-4714-a63f-4f11df69238a
 langcode: en
 status: true
 dependencies:
+  enforced:
+    module:
+      - rspv_events
   module:
     - menu_ui
 third_party_settings:
