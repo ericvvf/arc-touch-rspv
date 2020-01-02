@@ -1,9 +1,7 @@
+uuid: c9eb2b51-fb43-4714-a63f-4f11df69238a
 langcode: en
 status: true
 dependencies:
-  enforced:
-    module:
-      - rspv_events
   module:
     - menu_ui
 third_party_settings:
@@ -13,8 +11,8 @@ third_party_settings:
     parent: 'main:'
 name: 'Event Participation'
 type: event_participation
-description: 'Stores information about the participation of users on events'
+description: 'Stores information about users participation in events'
 help: ''
-new_revision: false
-preview_mode: 1
+new_revision: true
+preview_mode: 0
 display_submitted: false

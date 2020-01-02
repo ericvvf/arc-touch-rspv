@@ -1,9 +1,10 @@
+uuid: f22fa27c-299a-4a63-8102-e25cd94d8b96
 langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.event_participation.field_event
-    - field.field.node.event_participation.field_spectator
+    - field.field.node.event_participation.field_event_id
+    - field.field.node.event_participation.field_user_id
     - node.type.event_participation
   module:
     - path
@@ -18,25 +19,19 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_event:
+  field_event_id:
     weight: 121
     settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: entity_reference_autocomplete
+    type: number
     region: content
-  field_spectator:
+  field_user_id:
     weight: 122
     settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: entity_reference_autocomplete
+    type: number
     region: content
   path:
     type: path

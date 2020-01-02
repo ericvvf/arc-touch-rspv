@@ -1,10 +1,11 @@
+uuid: 41deaaa6-81df-40d7-82af-d3dffce5d26d
 langcode: en
 status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
-    - field.field.node.event_participation.field_event
-    - field.field.node.event_participation.field_spectator
+    - field.field.node.event_participation.field_event_id
+    - field.field.node.event_participation.field_user_id
     - node.type.event_participation
   module:
     - user
@@ -19,5 +20,5 @@ content:
     third_party_settings: {  }
     region: content
 hidden:
-  field_event: true
-  field_spectator: true
+  field_event_id: true
+  field_user_id: true
