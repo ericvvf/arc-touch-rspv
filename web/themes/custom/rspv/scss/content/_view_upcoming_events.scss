@@ -34,11 +34,30 @@
                 border-bottom-right-radius: 8px;
 
                 .event-date {
-                  border-right: 2px solid #eee;
+                  border-right: 2px solid $gallery;
                   padding: 2rem 1rem;
+
+                  .day {
+                    span {
+                      font-size: 2rem;
+                      font-weight: 700;
+                      color: $mine-shaft;
+                    }
+                  }
+                  .month {
+                    span {
+                      color: $dusty-gray;
+                      text-transform: uppercase;
+                      font-size: 1rem;
+                    }
+                  }
                 }
                 .event-body {
-                  padding-left: 0.5rem;
+                  padding-left: 1rem;
+                  h3 {
+                    color: $mine-shaft;
+                    line-height: 1.43rem;
+                  }
                   p {
                     margin-bottom: 0;
                     font-size: 0.89rem;
