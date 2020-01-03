@@ -5,6 +5,9 @@
  * Custom module for generic tasks.
  */
 
+use Drupal\user\Entity\User;
+use Drupal\Core\Render\Markup;
+
 /**
  * Implements hook_theme_suggestions_HOOK
  */
@@ -25,13 +28,32 @@ function rspv_events_theme_suggestions_node(array $variables) {
  */
 function rspv_events_preprocess_node(&$variables) {
   $node = $variables['elements']['#node'];
-  $event_date = $node->get('field_event_date')->getValue()[0]['value'];
-  $event_date_day = date('d', strtotime($event_date));
-  $event_date_month = date('M', strtotime($event_date));
-  $variables['event_date_day'] = $event_date_day;
-  $variables['event_date_month'] = $event_date_month;
 
-  // Checking whether the current user is anonymous or not
-  $variables['isAnonymous'] = \Drupal::currentUser()->isAnonymous() ? true : false;
-  $variables['#attached']['library'][] = 'rspv_events/subscription';
+  if($node->bundle() === 'event') {
+    $event_date = $node->get('field_event_date')->getValue()[0]['value'];
+    $event_date_day = date('d', strtotime($event_date));
+    $event_date_month = date('M', strtotime($event_date));
+    $variables['event_date_day'] = $event_date_day;
+    $variables['event_date_month'] = $event_date_month;
+
+    // Checking whether the current user is anonymous or not
+    $variables['isAnonymous'] = \Drupal::currentUser()->isAnonymous() ? true : false;
+    $variables['#attached']['library'][] = 'rspv_events/subscription';
+    $participants = $node->get('field_event_participant')->getValue();
+
+    if(!empty($participants)) {
+      $participants_markup = '<div class="participants-wrapper">';
+      $participants_markup .= '<h3>List of attenders</h3>';
+      $participants_markup .= '<ul class="participants">';
+      foreach($participants as $participant) {
+        $user = User::load($participant['target_id']);
+        $participants_markup .= '<li>';
+        $participants_markup .= $user->get('name')->value;
+        $participants_markup .= '</li>';
+      }
+      $participants_markup .= '</ul>';
+      $participants_markup .= '</div>';
+      $variables['participants_markup'] = Markup::create((string) $participants_markup);
+    }
+  }
 }
