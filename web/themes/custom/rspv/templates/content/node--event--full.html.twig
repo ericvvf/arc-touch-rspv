@@ -94,7 +94,9 @@
   {{ content.body }}
   {{ participants_markup }}
 
-  {% if isAnonymous %}
+  {% if curren_user_is_registered %}
+    <a class="btn btn-lg btn-warning btn-leave-event" href="#" role="button">Cancel subscription</a>
+  {% elseif isAnonymous %}
     <a class="btn btn-lg btn-rspv-primary" href="/user/login" role="button">Login to join the event</a>
   {% else %}
     <a data-event="{{ node.id() }}" class="btn-join-event btn btn-lg btn-rspv-primary" href="#" role="button">Join the event</a>
