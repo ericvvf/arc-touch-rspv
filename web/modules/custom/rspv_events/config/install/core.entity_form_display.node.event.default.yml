@@ -4,15 +4,19 @@ dependencies:
   config:
     - field.field.node.event.body
     - field.field.node.event.field_event_date
+    - field.field.node.event.field_event_location
     - field.field.node.event.field_event_participant
     - field.field.node.event.field_image
     - image.style.thumbnail
     - node.type.event
   module:
     - datetime
+    - geolocation
     - image
     - path
     - text
+_core:
+  default_config_hash: 50k0QGWzArhmMWbuR8m-XfrvoNhvG5xN6oxCE4qmsEs
 id: node.event.default
 targetEntityType: node
 bundle: event
@@ -39,6 +43,12 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
+    region: content
+  field_event_location:
+    weight: 124
+    settings: {  }
+    third_party_settings: {  }
+    type: geolocation_latlng
     region: content
   field_event_participant:
     type: entity_reference_autocomplete
