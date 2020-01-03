@@ -6,6 +6,8 @@ use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Entity\EntityManagerInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Drupal\rspv_events\RspvCore;
+use Drupal\user\Entity\User;
 
 /**
  * Returns responses for Rspv Events routes.
@@ -20,13 +22,21 @@ class RspvEventsController extends ControllerBase {
   protected $entityManager;
 
   /**
+   * The Rspv.core service.
+   *
+   * @var \Drupal\rspv_events\RspvCore
+   */
+  protected $rspvCore;
+
+  /**
    * The controller constructor.
    *
    * @param \Drupal\Core\Entity\EntityManagerInterface $entity_manager
    *   The entity.manager service.
    */
-  public function __construct(EntityManagerInterface $entity_manager) {
+  public function __construct(EntityManagerInterface $entity_manager, RspvCore $rspv_core) {
     $this->entityManager = $entity_manager;
+    $this->rspvCore = $rspv_core;
   }
 
   /**
@@ -34,17 +44,40 @@ class RspvEventsController extends ControllerBase {
    */
   public static function create(ContainerInterface $container) {
     return new static(
-      $container->get('entity.manager')
+      $container->get('entity.manager'),
+      $container->get('rspv_events.core')
     );
   }
 
   /**
-   * Builds the response.
+   * Subscribes to an event.
+   *
+   * @param $event
+   *   The event id.
    */
-  public function subscription($event) {
+  public function subscribe($event) {
 
     $user = \Drupal::currentUser();
 
-    return new JsonResponse(['event' => $event, 'user_id' => $user->id()]);
+    $subscription = $this->rspvCore->subscribe($event, $user->id());
+
+    return new JsonResponse($subscription);
   }
+
+
+  /**
+   * Cancel subscription on an event.
+   *
+   * @param $event
+   *   The event id.
+   */
+  public function unsubscribe($event) {
+
+    $user = \Drupal::currentUser();
+
+    $subscription = $this->rspvCore->unsubscribe($event, $user->id());
+
+    return new JsonResponse($subscription);
+  }
+
 }

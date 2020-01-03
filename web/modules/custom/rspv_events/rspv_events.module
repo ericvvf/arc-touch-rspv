@@ -30,30 +30,55 @@ function rspv_events_preprocess_node(&$variables) {
   $node = $variables['elements']['#node'];
 
   if($node->bundle() === 'event') {
+
+    /**
+     * Attaching the main library to handle the button event
+     */
+    $variables['#attached']['library'][] = 'rspv_events/subscription';
+
+    /**
+     * Controls if the current user is already registered
+     * on this event.
+     */
+    $variables['curren_user_is_registered'] = FALSE;
+    $currentUser = \Drupal::currentUser();
+
+    /**
+     * Formatting the event date to better rendering.
+     */
     $event_date = $node->get('field_event_date')->getValue()[0]['value'];
     $event_date_day = date('d', strtotime($event_date));
     $event_date_month = date('M', strtotime($event_date));
     $variables['event_date_day'] = $event_date_day;
     $variables['event_date_month'] = $event_date_month;
 
-    // Checking whether the current user is anonymous or not
-    $variables['isAnonymous'] = \Drupal::currentUser()->isAnonymous() ? true : false;
-    $variables['#attached']['library'][] = 'rspv_events/subscription';
-    $participants = $node->get('field_event_participant')->getValue();
+    /**
+     * Checking whether the current user is anonymous or not
+     */
+    $variables['isAnonymous'] = $currentUser->isAnonymous() ? TRUE : FALSE;
 
+    /**
+     * Getting the list of participants
+     */
+    $participants = $node->get('field_event_participant')->getValue();
     if(!empty($participants)) {
       $participants_markup = '<div class="participants-wrapper">';
       $participants_markup .= '<h3>List of attenders</h3>';
-      $participants_markup .= '<ul class="participants">';
+      $participants_markup .= '<ul id="participants">';
       foreach($participants as $participant) {
         $user = User::load($participant['target_id']);
-        $participants_markup .= '<li>';
+        $participants_markup .= '<li id="user-'.$user->id().'">';
         $participants_markup .= $user->get('name')->value;
         $participants_markup .= '</li>';
+
+        if($participant['target_id'] === $currentUser->id()) {
+          $variables['curren_user_is_registered'] = TRUE;
+        }
       }
       $participants_markup .= '</ul>';
       $participants_markup .= '</div>';
       $variables['participants_markup'] = Markup::create((string) $participants_markup);
+      // $rspv_core = \Drupal::service('rspv_events.core');
     }
   }
 }

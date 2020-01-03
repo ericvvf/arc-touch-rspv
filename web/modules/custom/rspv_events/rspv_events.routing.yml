@@ -2,6 +2,6 @@ rspv_events.subscribe:
   path: '/event/subscribe/{event}'
   defaults:
     _title: 'Subscribe'
-    _controller: '\Drupal\rspv_events\Controller\RspvEventsController::subscription'
+    _controller: '\Drupal\rspv_events\Controller\RspvEventsController::subscribe'
   requirements:
     _permission: 'access content'
