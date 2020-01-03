@@ -50,34 +50,17 @@ class RspvEventsController extends ControllerBase {
   }
 
   /**
-   * Subscribes to an event.
+   * Subscribes or remove subscription from an event.
    *
    * @param $event
    *   The event id.
    */
-  public function subscribe($event) {
+  public function subscription($event) {
 
     $user = \Drupal::currentUser();
 
-    $subscription = $this->rspvCore->subscribe($event, $user->id());
+    $subscription = $this->rspvCore->subscription($event, $user->id());
 
     return new JsonResponse($subscription);
   }
-
-
-  /**
-   * Cancel subscription on an event.
-   *
-   * @param $event
-   *   The event id.
-   */
-  public function unsubscribe($event) {
-
-    $user = \Drupal::currentUser();
-
-    $subscription = $this->rspvCore->unsubscribe($event, $user->id());
-
-    return new JsonResponse($subscription);
-  }
-
 }

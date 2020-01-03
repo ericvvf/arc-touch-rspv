@@ -3,15 +3,14 @@
 
   Drupal.behaviors.subscription = {
     attach: function attach(context) {
-      const $subscribeButton = $('.node--view-mode-full > .btn-join-event', context);
+      const $subscribeButton = $('.node--view-mode-full > .btn-subscribe', context);
       const $participantsList = $('#participants', context);
-      const $unsubscribeButton = $('.node--view-mode-full > .btn-leave-event', context);
 
       if ($subscribeButton.length) {
         $subscribeButton.click(function(){
 
           $subscribeButton.addClass('disabled');
-          $subscribeButton.text('Subscribing...');
+          $subscribeButton.text('Wait...');
 
           $.ajax({
             url: Drupal.url('event/subscribe/' + $(this).data('event')),
@@ -21,14 +20,23 @@
                 alert("An error has occurred. Try again later.")
               }
               else {
-                $subscribeButton
-                  .removeClass('btn-join-event btn-rspv-primary disabled')
-                  .addClass('btn-warning btn-leave-event');
+                const $action  = response.action;
 
-                  $subscribeButton.text('Cancel subscription');
-
-                if($participantsList.length) {
-                  $participantsList.append('<li id="user-'+response.user_id+'">'+response.user_name+'</li>');
+                if ($action === 'register') {
+                  $subscribeButton
+                    .removeClass('btn-rspv-primary disabled')
+                    .addClass('btn-warning');
+                    $subscribeButton.text('Cancel subscription');
+                    if($participantsList.length) {
+                      $participantsList.append('<li id="user-'+response.user_id+'">'+response.user_name+'</li>');
+                    }
+                }
+                else if ($action === 'remove') {
+                  $subscribeButton
+                  .removeClass('btn-warning disabled')
+                  .addClass('btn-rspv-primary');
+                  $subscribeButton.text('Join the event');
+                  $('#user-'+response.user_id).remove();
                 }
               }
             }
@@ -36,14 +44,6 @@
           return false;
         })
       }
-
-      if ($unsubscribeButton.length) {
-        $unsubscribeButton.click(function(){
-          alert("TOdo")
-          return false;
-        })
-      }
-
     }
   };
 

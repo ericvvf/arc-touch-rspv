@@ -78,7 +78,6 @@ function rspv_events_preprocess_node(&$variables) {
       $participants_markup .= '</ul>';
       $participants_markup .= '</div>';
       $variables['participants_markup'] = Markup::create((string) $participants_markup);
-      // $rspv_core = \Drupal::service('rspv_events.core');
     }
   }
 }
