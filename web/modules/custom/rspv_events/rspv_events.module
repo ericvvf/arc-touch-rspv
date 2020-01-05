@@ -30,7 +30,6 @@ function rspv_events_preprocess_node(&$variables) {
   $node = $variables['elements']['#node'];
 
   if($node->bundle() === 'event') {
-
     /**
      * Attaching the main library to handle the button event
      */
