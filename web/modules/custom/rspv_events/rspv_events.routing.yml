@@ -5,3 +5,10 @@ rspv_events.subscribe:
     _controller: '\Drupal\rspv_events\Controller\RspvEventsController::subscription'
   requirements:
     _permission: 'access content'
+
+rspv_events.user.events:
+  path: 'admin/people/user/{user}/events'
+  defaults:
+    _title: 'Events'
+  requirements:
+    _permission: 'access content'
