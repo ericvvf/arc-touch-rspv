@@ -1,0 +1,11 @@
+entity.user.contact_form:
+  title: 'Contact'
+  route_name: entity.user.contact_form
+  weight: 2
+  base_route: entity.user.canonical
+
+rspv_events.user.events:
+  title: 'Events'
+  route_name: rspv_events.user.events
+  weight: 20
+  base_route: entity.user.canonical
