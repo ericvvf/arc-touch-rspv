@@ -1,5 +1,7 @@
 SHELL := /bin/bash # Use bash syntax
 
+all: build rspv-install create-user
+
 install:
 	composer install
 
