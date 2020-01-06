@@ -41,7 +41,16 @@ The `Makefile` updates the password for the user "admin", so you can easily acce
 ### Module
 The `rspv_events` module structure can be found on `arc_touch_rspv/web/modules/custom`.
 
-It contains one Controller (`web/modules/custom/rspv_events/src/Controller/RspvEventsController.php`) that handler the subscription/unsubscription workflow. The Controller has the main service (`/home/eric/Documents/ArcTouch/arc_touch_rspv/web/modules/custom/rspv_events/src/RspvCore.php`) injected on it. The service takes care of all the logic that exists in the subscription/unsubscription scenario.
+It contains one Controller (`web/modules/custom/rspv_events/src/Controller/RspvEventsController.php`) that handler the subscription/unsubscription workflow. The Controller has the main service (`web/modules/custom/rspv_events/src/RspvCore.php`) injected on it. The service takes care of all the logic that exists in the subscription/unsubscription scenario.
+
+On `web/modules/custom/rspv_events/config/install` you can found all the configuration files that help the module to create the necessary structure on installation.
+
+The module creates the following structure:
+  - Event Content Type and its fields.
+  - One view with 3 displays:
+    - 1 - Home page view
+    - 2 - Next events view (all events)
+    - 3 - View that lists events related with some user.
 
 ### Live demo:
 You can access a live demo [here](http://arctouch-drupal.ericvinicius.com.br)
