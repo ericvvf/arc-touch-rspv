@@ -5,15 +5,27 @@ This project was built with [Drupal Composer](https://github.com/drupal-composer
 ## Usage
 First, make sure you have the following tools locally instaled:
 
-[Composer](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-osx).
-[GNU Make](https://www.gnu.org/software/make/).
-[NPM](https://www.npmjs.com/get-npm).
+[Composer](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-osx),
+[GNU Make](https://www.gnu.org/software/make/) and [NPM](https://www.npmjs.com/get-npm)
 
-> Note: The instructions below refer to the [global composer installation](https://getcomposer.org/doc/00-intro.md#globally).
-You might need to replace `composer` with `php composer.phar` (or similar)
-for your setup.
+> Note: set up your server as you wish. I'm running this project on Ubuntu 18.04, with Apache and Mysql.
 
-After that you can create the project:
+Once you have cloned the project and finished the server configuration, go to `arc_touch_rspv/web/sites/default/settings.php` and paste the following code:
+
+> Note: remember to put the right credentials based on your local setup.
+
+```php
+$databases['default']['default'] = array (
+  'database' => 'your_database',
+  'username' => 'your_user',
+  'password' => 'your_pass',
+  'prefix' => '',
+  'host' => 'localhost',
+  'port' => '3306',
+  'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
+  'driver' => 'mysql',
+);
+```
 
 ```
 composer create-project drupal-composer/drupal-project:8.x-dev some-dir --no-interaction
