@@ -1,6 +1,8 @@
 SHELL := /bin/bash # Use bash syntax
 
-all: build rspv-install create-user
+drupal: install build rspv-install admin-user
+
+theme: build-theme cache-rebuild
 
 install:
 	composer install
@@ -11,5 +13,11 @@ build:
 rspv-install:
 	./vendor/drupal/console/bin/drupal module:install rspv_events
 
-create-user:
-	./vendor/drush/drush/drush user-create eric.vvf --mail="eu@ericvinicius.com.br" --password="admin"; drush user-add-role "administrator" eric.vvf
+admin-user:
+	./vendor/drush/drush/drush user:password admin "admin";
+
+build-theme:
+	cd web/themes/custom/rspv && npm install && npm run build
+
+cache-rebuild:
+	./vendor/drush/drush/drush cr
