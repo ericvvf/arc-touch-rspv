@@ -63,5 +63,18 @@ The `web/modules/custom/rspv_events/rspv_events.module` file contains two import
 ### Theme
 The `rspv` theme structure can be found on `web/themes/custom/rspv`.
 
+This is a pretty much simple structure. Under `web/themes/custom/rspv/templates` we can find all the template files that we have overridden.
+
+On `web/themes/custom/rspv/scss` we have our SASS files that will be compiled to CSS (under `web/themes/custom/rspv/css`).
+
+## Assumptions
+
+Here are my assumptions:
+
+  - Even if I haven't been asked for, I've put the possibility to the user unsubscribe to an event.
+  - The list of event participants updates too.
+  - I don't have made an entirely new page for the report, and I choose to use the current Drupal user admin panel, just putting one new tab on it.
+
+
 ### Live demo:
 You can access a live demo [here](http://arctouch-drupal.ericvinicius.com.br)
