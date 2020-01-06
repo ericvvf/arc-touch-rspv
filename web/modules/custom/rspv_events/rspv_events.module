@@ -61,8 +61,7 @@ function rspv_events_preprocess_node(&$variables) {
      */
     $participants = $node->get('field_event_participant')->getValue();
     if(!empty($participants)) {
-      $participants_markup = '<div class="participants-wrapper">';
-      $participants_markup .= '<h3>List of attenders</h3>';
+      $participants_markup = '<h3>List of attenders</h3>';
       $participants_markup .= '<ul id="participants">';
       foreach($participants as $participant) {
         $user = User::load($participant['target_id']);
@@ -75,7 +74,6 @@ function rspv_events_preprocess_node(&$variables) {
         }
       }
       $participants_markup .= '</ul>';
-      $participants_markup .= '</div>';
       $variables['participants_markup'] = Markup::create((string) $participants_markup);
     }
   }

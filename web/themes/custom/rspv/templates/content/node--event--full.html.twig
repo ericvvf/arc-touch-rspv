@@ -93,7 +93,10 @@
   {{ content.field_image }}
   {{ content.body }}
   {{ content.field_event_location }}
-  {{ participants_markup }}
+
+  <div class="participants-wrapper">
+    {{ participants_markup }}
+  </div>
 
   {% if curren_user_is_registered %}
     <a data-event="{{ node.id() }}" class="btn btn-lg btn-warning btn-subscribe" href="#" role="button">Cancel subscription</a>
