@@ -36,9 +36,12 @@ If everything goes right, you'll be able to access the homepage on your configur
 
 The `Makefile` updates the password for the user "admin", so you can easily access the administration area.
 
-## Project structure
+## Project architecture
 
+### Module
+The `rspv_events` module structure can be found on `arc_touch_rspv/web/modules/custom`.
 
+It contains one Controller (`web/modules/custom/rspv_events/src/Controller/RspvEventsController.php`) that handler the subscription/unsubscription workflow. The Controller has the main service (`/home/eric/Documents/ArcTouch/arc_touch_rspv/web/modules/custom/rspv_events/src/RspvCore.php`) injected on it. The service takes care of all the logic that exists in the subscription/unsubscription scenario.
 
 ### Live demo:
 You can access a live demo [here](http://arctouch-drupal.ericvinicius.com.br)
