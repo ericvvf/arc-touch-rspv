@@ -55,9 +55,9 @@ The module creates the following structure:
 The module also sets up one link task (showed on `/user/{id}`) that give to admins the possibility to view the events that one user is signed up. Check `rspv_events.links.task.yml` and `rspv_events.routing.yml` to know more about it.
 
 The `web/modules/custom/rspv_events/rspv_events.module` file contains two importants functions:
+  - `rspv_events_theme_suggestions_node` adds theme suggestions to the Event content type view modes so we can manipulate our theme in a more flexible way.
 
-  1 - `rspv_events_theme_suggestions_node` adds theme suggestions to the Event content type view modes so we can manipulate our theme in a more flexible way.
-  2 - `rspv_events_preprocess_node` makes some important effort to build the rendering result for each node.
+  - `rspv_events_preprocess_node` makes some important effort to build the rendering result for each node.
   For example, it attaches the library that makes possible handle the subscribe button click, and also checks if the current user is already registered on the current event.
 
 ### Theme
