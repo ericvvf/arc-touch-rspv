@@ -1,0 +1,14 @@
+uuid: afbd3515-d6fb-4efb-81d9-0a9b03585dbd
+langcode: en
+status: true
+dependencies: {  }
+name: event_teaser
+label: 'Event Teaser'
+effects:
+  a9ce8148-4386-4c8f-838c-9941dc7c0bb9:
+    uuid: a9ce8148-4386-4c8f-838c-9941dc7c0bb9
+    id: image_resize
+    weight: 1
+    data:
+      width: 350
+      height: 150

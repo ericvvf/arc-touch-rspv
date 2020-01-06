@@ -1,0 +1,20 @@
+uuid: 22a86727-24ea-4dfe-b522-c0dcd3d27796
+langcode: en
+status: true
+dependencies:
+  theme:
+    - rspv
+_core:
+  default_config_hash: 13GQpeITIJsp1kyPniXtWZfyFH87vb1xxJCHifL4UeE
+id: rspv_local_actions
+theme: rspv
+region: content
+weight: -20
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  provider: core
+  label_display: '0'
+visibility: {  }

@@ -1,0 +1,50 @@
+.pager {
+  .pager__items {
+    .pager__item {
+      a {
+        border: 1px solid;
+        border-color: $alto;
+        color:  $alto;
+        border-radius: 25%;
+        display: inline-block;
+        padding: 3px 10px;
+      }
+      &.is-active {
+        a {
+          color: $jungle-green;
+          border-color: $jungle-green;
+        }
+      }
+    }
+    .pager__item--first,
+    .pager__item--last {
+      display: none;
+    }
+    .pager__item--next,
+    .pager__item--previous {
+      a {
+        border: none;
+        color: transparent;
+        &:before {
+          font: normal normal normal 14px/1 FontAwesome;
+          color: $boulder;
+          font-size: 1.2rem;
+        }
+      }
+    }
+    .pager__item--previous {
+      a {
+        &:before {
+          content: "\f104";
+        }
+      }
+    }
+    .pager__item--next {
+      a {
+        &:before {
+          content: "\f105";
+        }
+      }
+    }
+  }
+}

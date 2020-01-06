@@ -1,0 +1,9 @@
+global-theming:
+  version: VERSION
+  css:
+    theme:
+      css/styles.css: {  }
+  dependencies:
+    - core/drupal
+    - core/drupalSettings
+    - core/jquery.once

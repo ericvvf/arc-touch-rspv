@@ -1,0 +1,4 @@
+services:
+  rspv_events.core:
+    class: Drupal\rspv_events\RspvCore
+    arguments: ['@entity.manager']

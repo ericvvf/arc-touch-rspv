@@ -1,0 +1,27 @@
+.main-header {
+  padding: 0.6rem;
+  box-sizing: border-box;
+  background: $jungle-green;
+  .navbar {
+    .navbar-brand {
+      font-weight: 700;
+    }
+    padding: 0;
+    .navbar-brand,
+    .nav-item a
+    {
+      color: $white;
+    }
+    .navbar-nav {
+      li {
+        margin-right: 15px;
+        a {
+          text-transform: uppercase;
+        }
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+}

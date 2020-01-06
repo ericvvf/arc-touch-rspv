@@ -1,0 +1,5 @@
+name: Rspv Events
+type: module
+description: Displays information about upcoming events
+package: Custom
+core: 8.x
