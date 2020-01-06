@@ -39,7 +39,7 @@ The `Makefile` updates the password for the user "admin", so you can easily acce
 ## Project architecture
 
 ### Module
-The `rspv_events` module structure can be found on `arc_touch_rspv/web/modules/custom`.
+The `rspv_events` module structure can be found on `web/modules/custom/rspv_events`.
 
 It contains one Controller (`web/modules/custom/rspv_events/src/Controller/RspvEventsController.php`) that handler the subscription/unsubscription workflow. The Controller has the main service (`web/modules/custom/rspv_events/src/RspvCore.php`) injected on it. The service takes care of all the logic that exists in the subscription/unsubscription scenario.
 
@@ -48,11 +48,19 @@ On `web/modules/custom/rspv_events/config/install` you can find all the configur
 The module creates the following structure:
   - Event Content Type and its fields.
   - One view with 3 displays:
-    - 1 - Home page view
-    - 2 - Next events view (all events)
-    - 3 - View that lists events related with some user.
+      1 - Home page view
+      2 - Next events view (all events)
+      3 - View that lists events related with some user.
 
 The module also sets up one link task (showed on `/user/{id}`) that give to admins the possibility to view the events that one user is signed up. Check `rspv_events.links.task.yml` and `rspv_events.routing.yml` to know more about it.
+
+The `web/modules/custom/rspv_events/rspv_events.module` file contains two importants functions:
+  1 - `rspv_events_theme_suggestions_node` adds theme suggestions to the Event content type view modes so we can manipulate our theme in a more flexible way.
+  2 - `rspv_events_preprocess_node` makes some important effort to build the rendering result for each node.
+  For example, it attaches the library that makes possible handle the subscribe button click, and also checks if the current user is already registered on the current event.
+
+### Theme
+The `rspv` theme structure can be found on `web/themes/custom/rspv`.
 
 ### Live demo:
 You can access a live demo [here](http://arctouch-drupal.ericvinicius.com.br)
