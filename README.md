@@ -1,17 +1,13 @@
-# Composer template for Drupal projects
+# Arc Touch Drupal Challenge
 
-[![Build Status](https://travis-ci.org/drupal-composer/drupal-project.svg?branch=8.x)](https://travis-ci.org/drupal-composer/drupal-project)
-
-This project template provides a starter kit for managing your site
-dependencies with [Composer](https://getcomposer.org/).
-
-If you want to know how to use it as replacement for
-[Drush Make](https://github.com/drush-ops/drush/blob/8.x/docs/make.md) visit
-the [Documentation on drupal.org](https://www.drupal.org/node/2471553).
+This project was built with [Drupal Composer](https://github.com/drupal-composer/drupal-project).
 
 ## Usage
+First, make sure you have the following tools locally instaled:
 
-First you need to [install composer](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-osx).
+[Composer](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-osx).
+[GNU Make](https://www.gnu.org/software/make/).
+[NPM](https://www.npmjs.com/get-npm).
 
 > Note: The instructions below refer to the [global composer installation](https://getcomposer.org/doc/00-intro.md#globally).
 You might need to replace `composer` with `php composer.phar` (or similar)
