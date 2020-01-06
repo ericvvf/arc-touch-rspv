@@ -43,7 +43,7 @@ The `rspv_events` module structure can be found on `arc_touch_rspv/web/modules/c
 
 It contains one Controller (`web/modules/custom/rspv_events/src/Controller/RspvEventsController.php`) that handler the subscription/unsubscription workflow. The Controller has the main service (`web/modules/custom/rspv_events/src/RspvCore.php`) injected on it. The service takes care of all the logic that exists in the subscription/unsubscription scenario.
 
-On `web/modules/custom/rspv_events/config/install` you can found all the configuration files that help the module to create the necessary structure on installation.
+On `web/modules/custom/rspv_events/config/install` you can find all the configuration files that help the module to create the necessary structure on installation.
 
 The module creates the following structure:
   - Event Content Type and its fields.
@@ -51,6 +51,8 @@ The module creates the following structure:
     - 1 - Home page view
     - 2 - Next events view (all events)
     - 3 - View that lists events related with some user.
+
+The module also sets up one link task (showed on `/user/{id}`) that give to admins the possibility to view the events that one user is signed up. Check `rspv_events.links.task.yml` and `rspv_events.routing.yml` to know more about it.
 
 ### Live demo:
 You can access a live demo [here](http://arctouch-drupal.ericvinicius.com.br)
